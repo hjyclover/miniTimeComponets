@@ -1,0 +1,169 @@
+.mask{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.maskShow{
+  visibility: visible;
+  opacity: 1;
+}
+.pick-cont{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+.showPickCont{
+  transform: translateY(0);
+}
+.pick-head{
+  width: 100%;
+  height: 88rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.pick-head-title{
+  font-size: 30rpx;
+}
+.closeIcon{
+  position: absolute;
+  left: 20rpx;
+}
+.sureBtn{
+  position: absolute;
+  right: 20rpx;
+  color: #20A4F7;
+}
+.pick-nav-bar{
+  position: relative;
+  z-index: 10;
+  object-fit: 90rpx;
+  white-space: nowrap;
+  box-shadow: 0 0 2rpx 2rpx rgba(187, 185, 185, 0.4);
+  background-color: #ffffff;
+}
+.pick-nav-bar::-webkit-scrollbar {
+  display: none;
+}
+.nav-item{
+  display: inline-flex;
+  flex-direction: row;
+  min-width: 170rpx;
+  padding:  14rpx 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  color: #303133;
+  overflow: hidden;
+}
+.nav-item-txt{
+  font-size: 24rpx; 
+}
+.currentNav{
+  color: #00B1B7;
+  border-color: #00B1B7;
+  border-bottom-width: 4rpx;
+  border-bottom-style: solid;
+}
+.pick-select-cont{
+  height: 520rpx;
+  margin-top: 10rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.panel-picker{
+  height: 520rpx;
+  width: 100%;
+}
+.picker-item{
+  height: 100rpx;
+  line-height: 100rpx;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+}
+.pick-box{
+  display: flex;
+  justify-content: space-around;
+}
+.arrowLf{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 4rpx solid #999;
+  border-left: 4rpx solid #999;
+  transform: rotate(-45deg);
+}
+.arrowRf{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 4rpx solid #999;
+  border-right: 4rpx solid #999;
+  transform: rotate(45deg);
+}
+.calen-header{
+  display: flex;
+  height: 50rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.calen-week{
+  display: flex;
+  font-size: 28rpx;
+  height: 50rpx;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 16rpx 0 10rpx;
+  box-sizing: border-box;
+}
+.calen-cont-item{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.calen-item{
+  display: inline-block;
+  font-size: 24rpx;
+  width: 45rpx;
+  height: 45rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border: 2rpx solid #00B1B7;
+  border-radius: 50%;
+  margin-bottom: 16rpx;
+  margin-right: 59rpx;
+}
+.marginR{
+  margin-right: 0 !important;
+}
+.closeCalen{
+  border-color: #ccc;
+  color: #ccc;
+}
+.currentStyle{
+  border-color: #FF6F6F;
+  border-width: 4rpx;
+}
+.tapStyle{
+  background-color: #20A4F7;
+  color: #ffffff;
+}
+.calen-scroll-box{
+  display: flex;
+}

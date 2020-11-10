@@ -1,0 +1,84 @@
+<view class="picktime">
+  <view class="mask {{showPicker ? 'maskShow':''}}" bindtap="hidePicker">  </view>
+
+  <view class="pick-cont {{showPicker ? 'showPickCont' : '' }}" catchtap='showPicker'>
+    <!-- 头部 -->
+    <view class="pick-head">
+      <icon type="clear" class="closeIcon" size="20" color="#ccc" catchtap="hidePicker"></icon>
+      <view class="pick-head-title">{{pickHead}}</view>
+      <view class="sureBtn" catchtap="tapSure">确定</view>
+    </view>
+    <!-- 选择菜单 -->
+    <scroll-view class="pick-nav-bar" scroll-x  scroll-with-animation >
+      <view class="pick-box">
+        <view
+          wx:for="{{pickNavBar}}" wx:key='index'
+          class="nav-item {{'tab'+ index}} {{currentInd === index && hasTapPicker ? 'currentNav' : ''}}"
+          data-ind='{{index}}'
+          catchtap='selectNavItem'
+        >
+          <text class="nav-item-txt">{{item.text}}</text> <text class="nav-item-txt" wx:if="{{pickType === 'dataTime' && index == 0}}">{{currentYear}}-{{currentMon}}-{{tapDay || currentDay}}</text>
+        </view>
+
+      </view>
+    </scroll-view>
+
+    <!-- 选择内容 -->
+    <view class="pick-select-cont">
+
+      <view wx:if="{{!isShowCalender}}">
+        <picker-view value="{{pickVal}}" 
+            class="panel-picker"
+            indicator-style='height: 70rpx;'
+            style="width: 100%; height: 500rpx;"
+            bindchange="pickerChange"
+            bindpickstart="pickerStart"
+            bindpickend="pickerEnd"
+
+            
+        >
+          <block wx:for="{{pickDate}}" wx:key="index" wx:for-item='items'>
+
+            <picker-view-column >
+              <view class='picker-item' wx:for="{{items}}" wx:key='*this'>{{item}}</view>
+            </picker-view-column>
+
+          </block>
+        </picker-view>
+      </view>
+
+      <view wx:else>
+        <view class="calender-box">
+          <view class="calen-header">
+              <!-- <text class="arrowLf"></text> -->
+              <view>{{currentMon}} 月</view>
+              <!-- <text class="arrowRf"></text> -->
+          </view>
+          <view class="calen-week">
+            <view wx:for="{{calenWeekArr}}" wx:key="*this">{{item}}</view>
+          </view>
+
+          <scroll-view scroll-x style="height: 400rpx;" class="calen-scroll-box"
+            bindtouchstart="bindtouchstart" bindtouchend="bindtouchend"
+          >
+            <view class="calen-scroll-item">
+              <view class="calen-cont-item">
+                <block  wx:for="{{calenderArr}}" wx:key='index'>
+                  <view class="calen-item  {{(index+1) % 7 ==0 ?'marginR':'' }}  {{item.mon != currentMon ? 'closeCalen' : ''}}  {{ item.day == currentDay ? 'currentStyle' :''}} {{item.day == tapDay && item.mon == tapMon ? 'tapStyle':''}}"
+                    data-day='{{item.day}}'
+                    data-mon="{{item.mon}}"
+                    bindtap="selectDay"
+                  >{{item.day}}</view>
+                </block>
+              </view>
+            </view>
+          </scroll-view>
+
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

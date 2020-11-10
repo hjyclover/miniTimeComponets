@@ -1,0 +1,13 @@
+<view>
+  <view bindtap="selectTime">选择时间 <text wx:if="{{defaultDate.length>0}}">{{defaultDate[0]}}  {{defaultDate[1]}}</text>  </view>
+
+  <all-Pick-time 
+      showPicker="{{showPicker}}"
+      pickType="{{pickType}}" 
+      bind:pickTap="pickTap"
+      bind:pickSure="pickSure"
+      defaultDate="{{defaultDate}}"
+
+  >
+  </all-Pick-time>
+</view>

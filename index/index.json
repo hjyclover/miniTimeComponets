@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "all-Pick-time":"../components/allPickTime/allPickTime"
+  }
+}
